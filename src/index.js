@@ -13,22 +13,18 @@ const mdLinks = (inputPath,  options = { validate: false }) => new Promise((reso
   });
 
 
-//   const arr = mdLinks('prueba.md', { validate: false })
+//   const arr = mdLinks('prueba.md')
 //   .then(e => console.log(e));// desempaquetar promesas
 //   console.log(arr);
 
-  const arr = mdLinks('prueba.md', { validate: true })
-  .then(e => console.log(e));// desempaquetar promesas
-  console.log(arr);
 
-//   const arr1 = mdLinks('README.md')
-//   .then(e => console.log(e));// desempaquetar promesas
-//   console.log(arr1);
 
-// var args = process.argv;
-  
-// console.log("number of arguments is "+args.length);
-  
-// args.forEach((val, index) => {
-//     console.log(`${index}: ${val}`);
-// });
+let path = process.argv[2];
+
+mdLinks(path, { validate: true })
+.then(e => console.log(e));// desempaquetar promesas
+//   console.log(arr);
+
+module.exports = {
+    mdLinks
+  };

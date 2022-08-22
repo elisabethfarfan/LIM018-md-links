@@ -59,8 +59,6 @@ const getLinks = (inputPath) =>{
 
 const validateLinks = (inputPath) =>{
   const arrLinks = getLinks(inputPath); 
-  const expReg = /http?([^\)]*)/gm;
-  const newArrLinks = arrLinks.filter(e => e.href.match(expReg))
  const arrayPromises = arrLinks.map(element => fetch(element.href) 
   .then(res => {
    
