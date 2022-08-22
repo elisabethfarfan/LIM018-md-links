@@ -40,7 +40,7 @@ const getFiles = (inputPath) =>{
 const getLinks = (inputPath) =>{
     const arrDocsMd = getFiles(inputPath);
     const readDocMD = readFile(arrDocsMd);
-
+    const expReg = /http?([^\)]*)/gm;
     const arrayofLinks = [];
     const renderer  = new marked.Renderer();
     renderer.link = (urlFile, _, urlText) => {
@@ -52,7 +52,7 @@ const getLinks = (inputPath) =>{
      
           };
     marked(readDocMD,{ renderer  });
-    return arrayofLinks;  
+    return arrayofLinks.filter(e => e.href.match(expReg));  
 }
 
 // ruta absoluta 'D:/LABORATORIA/LIM018-md-links/README.md'
@@ -61,7 +61,7 @@ const validateLinks = (inputPath) =>{
   const arrLinks = getLinks(inputPath); 
   const expReg = /http?([^\)]*)/gm;
   const newArrLinks = arrLinks.filter(e => e.href.match(expReg))
- const arrayPromises = newArrLinks.map(element => fetch(element.href) 
+ const arrayPromises = arrLinks.map(element => fetch(element.href) 
   .then(res => {
    
     if (res.status < 400) {
@@ -90,5 +90,6 @@ return Promise.all(arrayPromises);
 
 module.exports = {
   existsRoute,
+  getLinks,
   validateLinks,
 };
