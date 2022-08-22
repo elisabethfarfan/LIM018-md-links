@@ -59,14 +59,16 @@ const getLinks = (inputPath) =>{
 
 const validateLinks = (inputPath) =>{
   const arrLinks = getLinks(inputPath); 
- const arrayPromises = arrLinks.map(element => fetch(element.href) 
+  const expReg = /http?([^\)]*)/gm;
+  const newArrLinks = arrLinks.filter(e => e.href.match(expReg))
+ const arrayPromises = newArrLinks.map(element => fetch(element.href) 
   .then(res => {
    
-    if (res.status >= 200 && res.status < 400) {
+    if (res.status < 400) {
       return {
         ...element,
         status: res.status,
-        statusText: res.statusText,
+        Text: res.statusText,
       };
     }
     return {
@@ -78,7 +80,7 @@ const validateLinks = (inputPath) =>{
   .catch(() => ({
     ...element,
     status: 'ERROR',
-    statusText: 'FAIL',
+    Text: 'FAIL',
   })));
 
 return Promise.all(arrayPromises);
