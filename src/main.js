@@ -71,7 +71,7 @@ const validateLinks = (inputPath) =>{
     return {
       ...element,
       status: res.status,
-      statusText: 'FAIL',
+      Text: 'FAIL',
     };
   })
   .catch(() => ({

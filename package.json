@@ -13,7 +13,7 @@
   "scripts": {
     "eslint": "eslint src/**/*.js --fix",
     "start": "node ./src/index.js",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "directories": {
     "test": "test"
