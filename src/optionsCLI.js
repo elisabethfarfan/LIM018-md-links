@@ -1,4 +1,3 @@
-const { set } = require('internal-slot');
 const mdLinks = require('./index.js');
   
 // Printing process.argv property value
@@ -34,3 +33,9 @@ const validateStats = (path) => {
 // validateStats('prueba.md');
 
 
+module.exports = {
+    mdLinksDefault,
+    mdLinksValidate,
+    mdLinksstats,
+    validateStats
+}

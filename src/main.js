@@ -3,7 +3,6 @@ const path = require('path');
 const { marked } = require('marked');
 const fetch  = require('node-fetch');
 
-// /\[([^\[]+)\](\(.*\))/gm -> regex
 
 // leemos y verifica la existencia de una ruta D:/LABORATORIA/LIM018-md-links/README.md
 const existsRoute = (inputPath) => fs.existsSync(inputPath); // true or false
