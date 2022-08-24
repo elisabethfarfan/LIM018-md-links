@@ -14,10 +14,9 @@ const mdLinks = (inputPath,  options = { validate: false }) => new Promise((reso
   });
 
 
-//   const arr = mdLinks('prueba.md')
+//  mdLinks('pruebas', {validate: true})
 //   .then(e => console.log(e));// desempaquetar promesas
 //   console.log(arr);
-
 
 
 // let path = process.argv[2];

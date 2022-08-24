@@ -7,23 +7,26 @@ jest.mock('node-fetch', () => jest.fn())
 
 describe('MDLINKS', () => {
 
-  it('MD-LINKS validate false', () => {
-   mdLinks('prueba.md', {validate:false}).then((link) => {
-     expect(link).toEqual(ouput)
-   })
- });
+      it('MD-LINKS validate false', () => {
+      mdLinks('pruebas', {validate:false}).then((link) => {
+        expect(link).toEqual(ouput)
+      })
+    });
 
- it('MD-LINKS validate true', (done) => {
-   fetch
-   .mockResolvedValueOnce({status: 200, statusText:'OK'})
-   .mockResolvedValueOnce({status: 'ERROR', statusText:'FAIL'})
+    it('MD-LINKS validate true', (done) => {
+      fetch.mockResolvedValueOnce({status: 200, statusText:'OK'});
+      fetch.mockRejectedValueOnce({status: 'ERROR', statusText:'FAIL'});
+      fetch.mockResolvedValueOnce({status: 200, statusText:'OK'});
+      fetch.mockRejectedValueOnce({status: 'ERROR', statusText:'FAIL'});
 
-   mdLinks('pruebas', {validate:true}).then((link) => {
-     console.log(link);
-     expect(link).toEqual(ouputValidateTrue);
-     done();
-   })
- });
+      mdLinks('pruebas', {validate:true})
+      .then((link) => {
+        expect(link).toEqual(ouputValidateTrue);
+        done();
+      });
+      
+      
+    });
 });
 
 // describe('existsRoute', () => {
