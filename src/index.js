@@ -8,6 +8,8 @@ const mdLinks = (inputPath,  options = { validate: false }) => new Promise((reso
         }else{
             resolve(route.getLinks(inputPath));
         }     
+    }else{
+        console.log('la ruta no existe');
     }
   });
 

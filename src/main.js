@@ -25,42 +25,54 @@ const readFile = (inputPath) => fs.readFileSync(inputPath, 'utf8');
 // Verifica si es ruta abs y  .md
 const getFiles = (inputPath) =>{
   const route = getAbsoluteRoute(inputPath);
+  let arrlink = [];
   if (isDocFile(route)) {
     if (isMD(route)) {
-      return route;
-    }else{
-      return 'no es un archivo .md';
-    } 
+      arrlink.push(route);
+    }
   }else{
-    return 'el path, es un directorio';
+    const directorio =  fs.readdirSync(route);
+    directorio.forEach(file => {
+      const rutaAll = getFiles(path.join(route, file));
+      // console.log(rutaAll);
+      arrlink = arrlink.concat(rutaAll);// concat une 2 arrays
+    //   console.log(arrlink);   
+      // console.log(path.join(route, file));  
+    })
+
   }
+  return arrlink;
 }
 
 const getLinks = (inputPath) =>{
     const arrDocsMd = getFiles(inputPath);
-    const readDocMD = readFile(arrDocsMd);
     const expReg = /http?([^\)]*)/gm;
     const arrayofLinks = [];
-    const renderer  = new marked.Renderer();
-    renderer.link = (urlFile, _, urlText) => {
-            arrayofLinks.push({
-              href: urlFile,
-              text: urlText,
-              path: arrDocsMd,
-            });          
-     
-          };
-    marked(readDocMD,{ renderer  });
+    // console.log(arrDocsMd);
+    // console.log('leyendo');
+    arrDocsMd.forEach(file => {
+      const readDocMD = readFile(file); 
+      const renderer  = new marked.Renderer();
+      renderer.link = (urlFile, _, urlText) => {
+              arrayofLinks.push({
+                href: urlFile,
+                text: urlText,
+                path: file,
+              });          
+       
+            };
+      marked(readDocMD,{ renderer  });    })
+   
     return arrayofLinks.filter(e => e.href.match(expReg));  
 }
-
+// console.log(getLinks('pruebas'));
 // ruta absoluta 'D:/LABORATORIA/LIM018-md-links/README.md'
 
 const validateLinks = (inputPath) =>{
   const arrLinks = getLinks(inputPath); 
  const arrayPromises = arrLinks.map(element => fetch(element.href) 
   .then(res => {
-   console.log(res);
+  //  console.log(res);
     if (res.status < 400) {
       return {
         ...element,

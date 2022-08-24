@@ -71,8 +71,8 @@
       href: 'http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175',
       text: 'Markdown',
       path: 'D:\\LABORATORIA\\LIM018-md-links\\prueba.md',
-      status: 200,
-      Text: 'OK'
+      status: 'ERROR',
+      Text: 'FAIL'
     }
   ];
   module.exports = {
