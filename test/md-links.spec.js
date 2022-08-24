@@ -2,6 +2,8 @@ const {mdLinks} = require('../src/index.js');
 const main = require('../src/main.js');
 const {ouput, ouputValidateTrue} = require('./testCases.js');
 
+const fetch  = require('node-fetch');
+jest.mock('node-fetch', () => jest.fn())
 
 describe('existsRoute', () => {
   it('should return True if a path exists', () => {
@@ -21,10 +23,12 @@ describe('MDLINKS', () => {
     })
   });
 
-  it('MD-LINKS validate true', () => {
+  it.only('MD-LINKS validate true', (done) => {
+    fetch.mockResolvedValue({status: 200, statusText:'OK'});
     mdLinks('prueba.md', {validate:true}).then((link) => {
       console.log(link);
-      expect(link).toEqual(ouputValidateTrue)
+      expect(link).toEqual(ouputValidateTrue);
+      done();
     })
   });
 });

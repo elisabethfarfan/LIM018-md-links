@@ -60,7 +60,7 @@ const validateLinks = (inputPath) =>{
   const arrLinks = getLinks(inputPath); 
  const arrayPromises = arrLinks.map(element => fetch(element.href) 
   .then(res => {
-   
+   console.log(res);
     if (res.status < 400) {
       return {
         ...element,
