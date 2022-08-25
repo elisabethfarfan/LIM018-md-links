@@ -101,4 +101,10 @@ module.exports = {
   existsRoute,
   getLinks,
   validateLinks,
+  getAbsoluteRoute,
+  isDocFile,
+  isMD,
+  readFile,
+  getFiles,
+
 };

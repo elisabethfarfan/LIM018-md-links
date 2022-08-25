@@ -3,6 +3,7 @@ const optionsCLI = require('./optionsCLI.js');
 
 const path = process.argv[2];
 const options = process.argv;
+
 if(options.length === 3){
     optionsCLI.mdLinksDefault(path);
 }
