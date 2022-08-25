@@ -27,10 +27,10 @@ En este proyecto crearás una herramienta de línea de comando (CLI) así como t
 propia librería (o biblioteca - library) en JavaScript.
 
 #### DIAGRAMA API
-![md-links](https://github.com/elisabethfarfan/LIM018-md-links/blob/main/img/DiagramaAPI.png)
+[Diagrama API](https://github.com/elisabethfarfan/LIM018-md-links/blob/main/img/DiagramaAPI.png)
 
 #### DIAGRAMA CLI
-![md-links](https://github.com/elisabethfarfan/LIM018-md-links/blob/main/img/Diagrama%20CLI.jpg)
+[Diagrama CLI](https://github.com/elisabethfarfan/LIM018-md-links/blob/main/img/Diagrama%20CLI.jpg)
 
 ## 3. Criterios de aceptación mínimos del proyecto
 
