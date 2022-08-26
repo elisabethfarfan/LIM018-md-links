@@ -1,4 +1,6 @@
 const route = require('./main.js');
+const chalk = require('chalk');
+
 
 
 const mdLinks = (inputPath,  options = { validate: false }) => new Promise((resolve,) => {
@@ -9,7 +11,7 @@ const mdLinks = (inputPath,  options = { validate: false }) => new Promise((reso
             resolve(route.getLinks(inputPath));
         }     
     }else{
-        console.log('la ruta no existe');
+        console.log('❗❗',chalk.white.bgRed( ' La ruta no existe, vuelve a ingresar una ruta válida '), '❗❗');
     }
   });
 
