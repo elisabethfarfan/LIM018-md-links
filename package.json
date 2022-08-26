@@ -32,11 +32,19 @@
     "type": "git",
     "url": "git+https://github.com/elisabethfarfan/LIM018-md-links.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+  "markdown",
+  "link",
+  "broken",
+  "unique"],
+  "author": "Elisabeth Farfán",
+  "license": "ISC", 
   "bugs": {
     "url": "https://github.com/elisabethfarfan/LIM018-md-links/issues"
+  },
+  
+  "bin": {
+    "md-links": "./src/CLI.js"
   },
   "homepage": "https://github.com/elisabethfarfan/LIM018-md-links#readme"
 }

@@ -1,3 +1,5 @@
+#!/usr/bin/env node;
+
 const process = require('process');
 const optionsCLI = require('./optionsCLI.js');
 const chalk = require('chalk');
