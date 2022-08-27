@@ -26,6 +26,7 @@ const mdLinksstats = (path) => {
         console.log('✔', chalk.hex('#3EC70B').bold('Unique: ', uniqueLinks.size), ' 🤩 ');
         console.log(' ');
     })
+    
 }
 
 const validateStats = (path) => {

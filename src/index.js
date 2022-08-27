@@ -3,7 +3,7 @@ const chalk = require('chalk');
 
 
 
-const mdLinks = (inputPath,  options = { validate: false }) => new Promise((resolve,) => {
+const mdLinks = (inputPath,  options = { validate: false }) => new Promise((resolve) => {
     if (route.existsRoute(inputPath)) {
         if(options.validate){
             resolve(route.validateLinks(inputPath));

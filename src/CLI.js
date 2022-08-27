@@ -1,4 +1,4 @@
-#!/usr/bin/env node;
+#!/usr/bin/env node
 
 const process = require('process');
 const optionsCLI = require('./optionsCLI.js');
@@ -40,15 +40,14 @@ if(options.length === 3){
 if(options.length === 4){
     if(options[3]==='--validate'){
         optionsCLI.mdLinksValidate(path);
-    }
-    if(options[3]==='--stats'){
+    }else if(options[3]==='--stats'){
         optionsCLI.mdLinksstats(path);
     }else{
         console.log(chalk.blueBright(help));
     }
 }
 if(options.length === 5){
-    if(options[3]==='--stats' && options[4]==='--validate' || options[3]==='--validate' && options[4]==='--stats'){
+    if((options[3]==='--stats' && options[4]==='--validate') || (options[3]==='--validate' && options[4]==='--stats')){
         optionsCLI.validateStats(path);
     }else{
         console.log(chalk.blueBright(help));
