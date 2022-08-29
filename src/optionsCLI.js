@@ -6,11 +6,13 @@ const chalk = require('chalk');
 const mdLinksDefault = (path) => {
     mdLinks.mdLinks(path, { validate: false })
     .then(e =>  console.log(e))
+    .catch( error => console.log('❗❗',chalk.white.bgRed( error), '❗❗'))
 }
 
 const mdLinksValidate = (path) => {
     mdLinks.mdLinks(path, { validate: true })
     .then(e =>  console.log(e))
+    .catch( error => console.log('❗❗',chalk.white.bgRed( error), '❗❗'))
 }
 
 const mdLinksstats = (path) => {
@@ -26,6 +28,7 @@ const mdLinksstats = (path) => {
         console.log('✔', chalk.hex('#3EC70B').bold('Unique: ', uniqueLinks.size), ' 🤩 ');
         console.log(' ');
     })
+    .catch( error => console.log('❗❗',chalk.white.bgRed( error), '❗❗'))
     
 }
 
@@ -47,6 +50,7 @@ const validateStats = (path) => {
 
         // console.log('TOTAL: ', totalLinks.length ,'\nUnique: ', uniqueLinks.size,'\nBroken: ',brokenLinks.length)
     })
+    .catch( error => console.log('❗❗',chalk.white.bgRed( error), '❗❗'))
 }
 // validateStats('prueba.md');
 
