@@ -6,13 +6,21 @@ const chalk = require('chalk');
 const mdLinksDefault = (path) => {
     mdLinks.mdLinks(path, { validate: false })
     .then(e =>  console.log(e))
-    .catch( error => console.log('❗❗',chalk.white.bgRed( error), '❗❗'))
+    .catch( (error) => {
+        console.log('❗❗',chalk.bold.red( error), '❗❗');
+        console.log(chalk.magentaBright(' ó ingrese '), chalk.greenBright.bold('md-links --help'));
+        console.log();
+    })
 }
 
 const mdLinksValidate = (path) => {
     mdLinks.mdLinks(path, { validate: true })
     .then(e =>  console.log(e))
-    .catch( error => console.log('❗❗',chalk.white.bgRed( error), '❗❗'))
+    .catch( (error) => {
+        console.log('❗❗',chalk.bold.red( error), '❗❗');
+        console.log(chalk.magentaBright(' ó ingrese '), chalk.greenBright.bold('md-links --help'));
+        console.log();
+    })
 }
 
 const mdLinksstats = (path) => {
@@ -28,7 +36,11 @@ const mdLinksstats = (path) => {
         console.log('✔', chalk.hex('#3EC70B').bold('Unique: ', uniqueLinks.size), ' 🤩 ');
         console.log(' ');
     })
-    .catch( error => console.log('❗❗',chalk.white.bgRed( error), '❗❗'))
+    .catch( (error) => {
+        console.log('❗❗',chalk.bold.red( error), '❗❗');
+        console.log(chalk.magentaBright(' ó ingrese '), chalk.greenBright.bold('md-links --help'));
+        console.log();
+    })
     
 }
 
@@ -50,7 +62,11 @@ const validateStats = (path) => {
 
         // console.log('TOTAL: ', totalLinks.length ,'\nUnique: ', uniqueLinks.size,'\nBroken: ',brokenLinks.length)
     })
-    .catch( error => console.log('❗❗',chalk.white.bgRed( error), '❗❗'))
+    .catch( (error) => {
+        console.log('❗❗',chalk.bold.red( error), '❗❗');
+        console.log(chalk.magentaBright(' ó ingrese '), chalk.greenBright.bold('md-links --help'));
+        console.log();
+    })
 }
 // validateStats('prueba.md');
 

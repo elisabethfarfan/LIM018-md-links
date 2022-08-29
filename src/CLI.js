@@ -34,7 +34,12 @@ if(options.length === 2){
     console.log(chalk.blueBright(help));
 }
 if(options.length === 3){
-    optionsCLI.mdLinksDefault(path);
+    if(options[2]==='--help'){
+        console.log(chalk.blueBright(help));
+    }else{
+        optionsCLI.mdLinksDefault(path);
+    }
+   
 }
 
 if(options.length === 4){
@@ -54,4 +59,7 @@ if(options.length === 5){
     }
     // console.log(options[4]);
 
+}
+if(options.length > 5){
+    console.log(chalk.blueBright(help));
 }
