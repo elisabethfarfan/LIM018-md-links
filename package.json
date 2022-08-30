@@ -1,6 +1,6 @@
 {
   "name": "md-links",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "\"creacion de libreria mdLinks\"",
   "main": "src/index.js",
   "engines": {
@@ -28,6 +28,9 @@
     "marked": "^4.0.18",
     "node-fetch": "^2.6.7"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/elisabethfarfan/LIM018-md-links.git"
@@ -46,8 +49,6 @@
   "bin": {
     "md-links": "src/CLI.js"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
+  
   "homepage": "https://github.com/elisabethfarfan/LIM018-md-links#readme"
 }

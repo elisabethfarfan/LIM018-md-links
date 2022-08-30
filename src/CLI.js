@@ -57,7 +57,6 @@ if(options.length === 5){
     }else{
         console.log(chalk.blueBright(help));
     }
-    // console.log(options[4]);
 
 }
 if(options.length > 5){

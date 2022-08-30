@@ -4,10 +4,10 @@ const { marked } = require('marked');
 const fetch  = require('node-fetch');
 
 
-// leemos y verifica la existencia de una ruta D:/LABORATORIA/LIM018-md-links/README.md
-const existsRoute = (inputPath) => fs.existsSync(inputPath); // true or false
+// leemos y verifica la existencia de una ruta 
+const existsRoute = (inputPath) => fs.existsSync(inputPath); 
 
-// verificar si la ruta es absoluta y sino la convertimos en abs
+// verificar si la ruta es absoluta y sino la convertimos 
 const getAbsoluteRoute = (inputPath) => path.isAbsolute(inputPath) ? inputPath : path.resolve(inputPath);
 
 // Verificar si es un archivo
@@ -16,10 +16,10 @@ const isDocFile = (inputPath) => {
   return stats.isFile();
 };
 
-// es un archivo .md --> path.extname --> retorna la extencion  del path
-const isMD = (inputPath) => (path.extname(inputPath) === '.md'); // true o false si .md
+// es un archivo .md 
+const isMD = (inputPath) => (path.extname(inputPath) === '.md'); 
 
-// leer el contenido del archivo readFileSync --> lee archivos y devuelve su contenido
+// leer el contenido del archivo 
 const readFile = (inputPath) => fs.readFileSync(inputPath, 'utf8');
 
 // Verifica si es ruta abs y  .md
@@ -28,17 +28,13 @@ const getFiles = (inputPath) =>{
   let arrlink = [];
   if (isDocFile(route)) {
     if (isMD(route)) {
-      // return route;
       arrlink.push(route);
     }
   }else{
     const directorio =  fs.readdirSync(route);
     directorio.forEach(file => {
-      const rutaAll = getFiles(path.join(route, file));
-      // console.log(rutaAll);
-      arrlink = arrlink.concat(rutaAll);// concat une 2 arrays
-    //   console.log(arrlink);   
-      // console.log(path.join(route, file));  
+      const rutaAll = getFiles(path.join(route, file));    
+      arrlink = arrlink.concat(rutaAll);    
     })
 
   }
@@ -48,9 +44,7 @@ const getFiles = (inputPath) =>{
 const getLinks = (inputPath) =>{
     const arrDocsMd = getFiles(inputPath);
     const expReg = /http?([^\)]*)/gm;
-    const arrayofLinks = [];
-    // console.log(arrDocsMd);
-    // console.log('leyendo');
+    const arrayofLinks = [];   
     arrDocsMd.forEach(file => {
       const readDocMD = readFile(file); 
       const renderer  = new marked.Renderer();
@@ -66,14 +60,12 @@ const getLinks = (inputPath) =>{
    
     return arrayofLinks.filter(e => e.href.match(expReg));  
 }
-// console.log(getLinks('pruebas'));
-// ruta absoluta 'D:/LABORATORIA/LIM018-md-links/README.md'
+
 
 const validateLinks = (inputPath) =>{
   const arrLinks = getLinks(inputPath); 
  const arrayPromises = arrLinks.map(element => fetch(element.href) 
   .then(res => {
-  //  console.log(res);
     if (res.status < 400) {
       return {
         ...element,
