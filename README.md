@@ -32,7 +32,11 @@ propia librería (o biblioteca - library) en JavaScript.
 #### DIAGRAMA CLI
 [Diagrama CLI](https://github.com/elisabethfarfan/LIM018-md-links/blob/main/img/Diagrama%20CLI.jpg)
 
-## 3. Criterios de aceptación mínimos del proyecto
+## 3. Instalación 
+
+npm install @elisabethfarfan/md-links@1.0.0
+
+## 4. Criterios de aceptación mínimos del proyecto
 
 ## Este proyecto consta de DOS partes
 
