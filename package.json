@@ -1,5 +1,5 @@
 {
-  "name": "md-links",
+  "name": "@elisabethfarfan/md-links",
   "version": "1.0.0",
   "description": "\"creacion de libreria mdLinks\"",
   "main": "src/index.js",
