@@ -28,6 +28,7 @@ const getFiles = (inputPath) =>{
   let arrlink = [];
   if (isDocFile(route)) {
     if (isMD(route)) {
+      // return route;
       arrlink.push(route);
     }
   }else{

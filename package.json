@@ -1,6 +1,6 @@
 {
-  "name": "md-links-ef",
-  "version": "0.1.0",
+  "name": "md-links",
+  "version": "0.1.1",
   "description": "\"creacion de libreria mdLinks\"",
   "main": "src/index.js",
   "engines": {
@@ -33,18 +33,21 @@
     "url": "git+https://github.com/elisabethfarfan/LIM018-md-links.git"
   },
   "keywords": [
-  "markdown",
-  "link",
-  "broken",
-  "unique"],
+    "markdown",
+    "link",
+    "broken",
+    "unique"
+  ],
   "author": "Elisabeth Farfán",
-  "license": "ISC", 
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/elisabethfarfan/LIM018-md-links/issues"
   },
-  
   "bin": {
-    "md-links": "./src/CLI.js"
+    "md-links": "src/CLI.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "homepage": "https://github.com/elisabethfarfan/LIM018-md-links#readme"
 }
