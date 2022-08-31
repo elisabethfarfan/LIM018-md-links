@@ -36,6 +36,8 @@ propia librería (o biblioteca - library) en JavaScript.
 
 npm install @elisabethfarfan/md-links@1.0.0
 
+npm i md-links-ef
+
 ## 4. Criterios de aceptación mínimos del proyecto
 
 ## Este proyecto consta de DOS partes
